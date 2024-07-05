@@ -1,3 +1,9 @@
+/*
+ * Za dodat:
+ * - '0' zamenjaj z ' '
+ * - indeksiraj st. vrstic & stolpcov
+ * - ce exploras '0', odpre vse sosednje '0'
+ */
 import java.util.Scanner;
 import java.util.Arrays;
 import java.util.Random;
@@ -5,11 +11,11 @@ public class Minesweeper {
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
         
-        /*  POMEN ŠT. NA POLJU:
+        /*  POMEN ST. NA POLJU:
          *  BOMBA = -1
-         *  št. bomb okoli polja = #
+         *  st. bomb okoli polja = #
          *  POMEN KOMAND (input):
-         *  [št. vrstice][št. stolpca] E (explore)/ F (flag)
+         *  [st. vrstice][st. stolpca] E (explore)/ F (flag)
          */
 
         int[][] mreza = new int[25][12];
@@ -207,7 +213,12 @@ public class Minesweeper {
             }
         }
         else if(inputType == 'F'){
-            prikMreza[vrstica][stolpec] = 'F';
+            if(prikMreza[vrstica][stolpec] == 'F'){
+                prikMreza[vrstica][stolpec] = 'x';
+            }
+            else{
+                prikMreza[vrstica][stolpec] = 'F';
+            }
         }
         printajPrikazanoMrezo(prikMreza);
     }
@@ -231,17 +242,34 @@ public class Minesweeper {
         }
     }
     public static void printajPrikazanoMrezo(char[][] mreza){
-        for(int i = 0; i < 25; i++){
-            for(int j = 0; j < 12; j++){
+        String[][] cela = new String[26][13];
+        String ch = "blank";
+        cela[0][0] = "/";
+        for(int i = 1; i < 26; i++){
+            for(int j = 1; j < 13; j++){
+                cela[i][j] = String.valueOf(mreza[i-1][j-1]);
+            }
+        }
+        for(int i = 1; i < 13; i++){
+            ch = String.valueOf(i-1);
+            cela[0][i] = ch;
+        }
+        for(int i = 1; i < 26; i++){
+            ch = String.valueOf(i-1);
+            cela[i][0] = ch;
+        }
+        for(int i = 0; i < 26; i++){
+            for(int j = 0; j < 13; j++){
                 if(j == 11){
-                    System.out.printf("%2c\n\n", mreza[i][j]);
+                    System.out.printf("%2s\n\n", cela[i][j]);
                     break;
                 }
-                System.out.printf("%2c  ", mreza[i][j]);
+                System.out.printf("%2s  ", cela[i][j]);
             }
         }
     }
     public static void printajMrezo(int[][] mreza){
+        
         for(int i = 0; i < 25; i++){
             for(int j = 0; j < 12; j++){
                 if(j == 11){
