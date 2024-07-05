@@ -1,7 +1,3 @@
-/*
- * UNFINISHED: Metoda 'posodobi' nedelujoča
- */
-
 import java.util.Scanner;
 import java.util.Arrays;
 import java.util.Random;
@@ -18,6 +14,12 @@ public class Minesweeper {
 
         int[][] mreza = new int[25][12];
         char[][] prikazanaMreza = new char[25][12];
+        int stPoteze = 1;
+        int stFlagov = 45;
+        int stUporabljenihFlagov = 0;
+        boolean jeKonc = false;
+
+        
         dodajBombe(mreza);
         dopolniMrezo(mreza);
         inicializiraj(prikazanaMreza);
@@ -28,14 +30,8 @@ public class Minesweeper {
         int inputVr = sc.nextInt();
         System.out.println("Vnesi # stolpca zelenega polja:");
         int inputSt = sc.nextInt();
-        int stFlagov = 45;
         System.out.printf("Tip vnosa (E - explore / F - flag(Na voljo se: %d zastavic.)):", stFlagov);
         char inputType = sc.next().charAt(0);
-        int stPoteze = 1;
-        int stUporabljenihFlagov = 0;
-        boolean jeKonc = false;
-        System.out.printf("Vnosa sta: [%d][%d] : %d. stevilo bomb: %d\n\n", inputVr, inputSt, mreza[inputVr][inputSt], stejBombe(mreza));
-
         
 
         while(!jeKonc){
@@ -44,7 +40,6 @@ public class Minesweeper {
             }
             jeKonc = konecIgre(stPoteze, inputVr, inputSt, inputType, mreza, prikazanaMreza);
             posodobi(prikazanaMreza, mreza, inputVr, inputSt, inputType);
-            //printajPrikazanoMrezo(prikazanaMreza);
             if(jeKonc){
                 break;
             }
