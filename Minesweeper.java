@@ -410,7 +410,7 @@ public class Minesweeper {
         return stBomb;
     }
     public static void zguba(){
-        System.out.println("Zgubil si.");
+        System.out.println("Izgubil si.");
     }
     public static void zmaga(){
         System.out.println("Čestitke, zmagal si!");
