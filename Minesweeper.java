@@ -1,7 +1,6 @@
 /*
  * Za dodat:
  * - '0' zamenjaj z ' '
- * - indeksiraj st. vrstic & stolpcov
  * - ce exploras '0', odpre vse sosednje '0'
  */
 import java.util.Scanner;
