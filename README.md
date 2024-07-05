@@ -8,7 +8,7 @@ git clone https://github.com/SwissKitten/Minesweeper.git
 ```
 Se pomaknemo v klonirano mapo na računalniku:
 ```
-cd Minesweeper
+cd Najnovejša verzija
 ```
 Prevedemo program:
 ```
