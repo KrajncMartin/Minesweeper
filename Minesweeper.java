@@ -22,19 +22,14 @@ public class Minesweeper {
         dopolniMrezo(mreza);
         inicializiraj(prikazanaMreza);
 
-        //System.out.printf("\n\n\n");
-        //printajMrezo(mreza);
-        //printajPrikazanoMrezo(prikazanaMreza);
-        //System.out.println(stejBombe(mreza));
-
-        //printajMrezo(mreza);
+        
         printajPrikazanoMrezo(prikazanaMreza);
         System.out.println("Vnesi # vrstice zelenega polja:");
         int inputVr = sc.nextInt();
         System.out.println("Vnesi # stolpca zelenega polja:");
         int inputSt = sc.nextInt();
         int stFlagov = 45;
-        System.out.printf("Tip vnosa (E - explore / F - flag(Na voljo še: %d zastavic.)):", stFlagov);
+        System.out.printf("Tip vnosa (E - explore / F - flag(Na voljo se: %d zastavic.)):", stFlagov);
         char inputType = sc.next().charAt(0);
         int stPoteze = 1;
         int stUporabljenihFlagov = 0;
@@ -59,12 +54,8 @@ public class Minesweeper {
             inputVr = sc.nextInt();
             System.out.println("Vnesi # stolpca zelenega polja:");
             inputSt = sc.nextInt();
-            System.out.printf("Tip vnosa (E - explore / F - flag(Na voljo še: %d zastavic.)):", stFlagov-stUporabljenihFlagov);
+            System.out.printf("Tip vnosa (E - explore / F - flag(Na voljo se: %d zastavic.)):", stFlagov-stUporabljenihFlagov);
             inputType = sc.next().charAt(0);
-
-            //printajMrezo(mreza);
-            //System.out.printf("Stevilo bomb: %d\n\n\n", stejBombe(mreza));
-            //printajPrikazanoMrezo(prikazanaMreza);
         }
     }
     public static boolean konecIgre(int stPoteze, int inputVr, int inputSt, char vnosType, int[][] mreza, char[][] prikMreza){
@@ -235,7 +226,6 @@ public class Minesweeper {
             NovStolpec = rd.nextInt(12);
         }
         mreza[NovaVrstica][NovStolpec] = -1;
-        System.out.printf("Preusmerjena na: [%d][%d], stevilo bomb: %d\n", NovaVrstica, NovStolpec, stejBombe(mreza));
         dopolniMrezo(mreza);
     }
     public static void inicializiraj (char[][] mreza){
