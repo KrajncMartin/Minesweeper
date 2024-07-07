@@ -1,7 +1,6 @@
 /*
  * Za dodat:
  * - '0' zamenjaj z ' '
- * - indeksiraj st. vrstic & stolpcov
  * - ce exploras '0', odpre vse sosednje '0'
  */
 import java.util.Scanner;
@@ -11,13 +10,6 @@ public class Minesweeper {
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
         
-        /*  POMEN ST. NA POLJU:
-         *  BOMBA = -1
-         *  st. bomb okoli polja = #
-         *  POMEN KOMAND (input):
-         *  [st. vrstice][st. stolpca] E (explore)/ F (flag)
-         */
-
         int[][] mreza = new int[25][12];
         char[][] prikazanaMreza = new char[25][12];
         int stPoteze = 1;
