@@ -1,6 +1,7 @@
 /*
  * Za dodat:
  * - '0' zamenjaj z ' '
+ * - indeksiraj st. vrstic & stolpcov
  * - ce exploras '0', odpre vse sosednje '0'
  */
 import java.util.Scanner;
@@ -10,6 +11,13 @@ public class Minesweeper {
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
         
+        /*  POMEN ST. NA POLJU:
+         *  BOMBA = -1
+         *  st. bomb okoli polja = #
+         *  POMEN KOMAND (input):
+         *  [st. vrstice][st. stolpca] E (explore)/ F (flag)
+         */
+
         int[][] mreza = new int[25][12];
         char[][] prikazanaMreza = new char[25][12];
         int stPoteze = 1;
@@ -23,7 +31,7 @@ public class Minesweeper {
         inicializiraj(prikazanaMreza);
 
         
-        printajPrikazanoMrezo(prikazanaMreza);
+        printajPrikazanoMrezo(prikazanaMreza, mreza);
         System.out.println("Vnesi # vrstice zelenega polja:");
         int inputVr = sc.nextInt();
         System.out.println("Vnesi # stolpca zelenega polja:");
@@ -82,18 +90,26 @@ public class Minesweeper {
     }
     
     public static void posodobi(char[][] prikMreza, int[][] mreza, int vrstica, int stolpec, char inputType){
+        char ch = ' ';
         char naMrezi = Character.forDigit(mreza[vrstica][stolpec], 10);
-        char ch = '/';
+        if(mreza[vrstica][stolpec] == 0){
+            naMrezi = ch;
+        }
 
         if(inputType == 'E'){
             prikMreza[vrstica][stolpec] = naMrezi;
             if((vrstica != 0) && (vrstica != 24) && (stolpec != 0) && (stolpec != 11)){
                 for(int i = -1; i < 2; i++){
                     for(int j = -1; j < 2; j++){
-                        if((mreza[vrstica + i][stolpec + j] != -1) ){
+                        if(mreza[vrstica + i][stolpec + j] != -1){
                             if(!(i == 0 && j == 0)){
-                            ch = Character.forDigit((mreza[vrstica + i][stolpec + j]), 10);
-                            prikMreza[vrstica + i][stolpec + j] = ch;
+                                if(mreza[vrstica+i][stolpec+j] == 0){
+                                    prikMreza[vrstica + i][stolpec + j] = ch;
+                                }
+                                else{
+                                    ch = Character.forDigit((mreza[vrstica + i][stolpec + j]), 10);
+                                    prikMreza[vrstica + i][stolpec + j] = ch;
+                                }
                             }
                         }
                     }
@@ -101,29 +117,31 @@ public class Minesweeper {
             }
             else if(vrstica == 0){
                 if(mreza[vrstica + 1][stolpec] != -1){
-                    ch = Character.forDigit((mreza[vrstica + 1][stolpec]), 10);
-                    prikMreza[vrstica+1][stolpec] = ch;
+                    if(mreza[vrstica+1][stolpec] == 0){
+                        prikMreza[vrstica + 1][stolpec] = ch;
+                    }
+                    else{
+                        ch = Character.forDigit((mreza[vrstica + 1][stolpec]), 10);
+                        prikMreza[vrstica+1][stolpec] = ch;
+                    }
                 }
-                if(mreza[vrstica][stolpec - 1] != -1){
-                    if(stolpec != 0){
+                //OD TUKAJ NAPREJ NEDOKONCANO ZA NADOMESCANJE "0" Z " "
+                if(stolpec != 0){
+                    if(mreza[vrstica][stolpec - 1] != -1){
                         ch = Character.forDigit((mreza[vrstica][stolpec - 1]), 10);
                         prikMreza[vrstica][stolpec-1] = ch;
                     }
-                }
-                if(mreza[vrstica - 1][stolpec - 1] != -1){
-                    if(stolpec != 0){
+                    if(mreza[vrstica - 1][stolpec - 1] != -1){
                         ch = Character.forDigit((mreza[vrstica - 1][stolpec - 1]), 10);
                         prikMreza[vrstica-1][stolpec-1] = ch;
                     }
                 }
-                if(mreza[vrstica][stolpec + 1] != -1){
-                    if(stolpec != 11){
+                if(stolpec != 11){
+                    if(mreza[vrstica][stolpec + 1] != -1){
                         ch = Character.forDigit((mreza[vrstica][stolpec + 1]), 10);
                         prikMreza[vrstica][stolpec+1] = ch;
                     }
-                }
-                if(mreza[vrstica + 1][stolpec + 1] != -1){
-                    if(stolpec != 11){
+                    if(mreza[vrstica + 1][stolpec + 1] != -1){
                         ch = Character.forDigit((mreza[vrstica + 1][stolpec + 1]), 10);
                         prikMreza[vrstica+1][stolpec+1] = ch;
                     }
@@ -134,30 +152,27 @@ public class Minesweeper {
                     ch = Character.forDigit((mreza[vrstica - 1][stolpec]), 10);
                     prikMreza[vrstica-1][stolpec] = ch;
                 }
-                if(mreza[vrstica][stolpec-1] != -1){
-                    if(stolpec != 0){
+                if(stolpec != 0){
+                    if(mreza[vrstica][stolpec-1] != -1){
                         ch = Character.forDigit((mreza[vrstica][stolpec - 1]), 10);
                         prikMreza[vrstica][stolpec-1] = ch;
                     }
-                }
-                if(mreza[vrstica-1][stolpec-1] != -1){
-                    if(stolpec != 0){
+                    if(mreza[vrstica-1][stolpec-1] != -1){
                         ch = Character.forDigit((mreza[vrstica - 1][stolpec - 1]), 10);
                         prikMreza[vrstica-1][stolpec-1] = ch;
                     }
                 }
-                if(mreza[vrstica][stolpec+1] != -1){
-                    if(stolpec != 11){
+                if(stolpec != 11){
+                    if(mreza[vrstica][stolpec+1] != -1){
                         ch = Character.forDigit((mreza[vrstica][stolpec + 1]), 10);
-                       prikMreza[vrstica][stolpec+1] = ch;
+                        prikMreza[vrstica][stolpec+1] = ch;
                     }
-                }
-                if(mreza[vrstica+1][stolpec+1] != -1){
-                    if(stolpec != 11){
+                    if(mreza[vrstica+1][stolpec+1] != -1){
                         ch = Character.forDigit((mreza[vrstica+1][stolpec + 1]), 10);
-                       prikMreza[vrstica+1][stolpec+1] = ch;
+                        prikMreza[vrstica+1][stolpec+1] = ch;
                     }
                 }
+                
             }
             else if(stolpec == 0){
                 if(mreza[vrstica - 1][stolpec] != -1){
@@ -212,7 +227,7 @@ public class Minesweeper {
                 prikMreza[vrstica][stolpec] = 'F';
             }
         }
-        printajPrikazanoMrezo(prikMreza);
+        printajPrikazanoMrezo(prikMreza, mreza);
     }
     public static void preusmeriBombo(int[][] mreza, int vrstica, int stolpec){
         Random rd = new Random();
@@ -233,10 +248,11 @@ public class Minesweeper {
             }
         }
     }
-    public static void printajPrikazanoMrezo(char[][] mreza){
+    public static void printajPrikazanoMrezo(char[][] mreza, int[][] dejanskaMreza){
         String[][] cela = new String[26][13];
         String ch = "blank";
         cela[0][0] = "/";
+
         for(int i = 1; i < 26; i++){
             for(int j = 1; j < 13; j++){
                 cela[i][j] = String.valueOf(mreza[i-1][j-1]);
@@ -433,6 +449,6 @@ public class Minesweeper {
         System.out.println("Izgubil si.");
     }
     public static void zmaga(){
-        System.out.println("Čestitke, zmagal si!");
+        System.out.println("Cestitke, zmagal si!");
     }
 }
