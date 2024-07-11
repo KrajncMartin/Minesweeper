@@ -11,6 +11,7 @@ git clone https://github.com/KrajncMartin/Minesweeper.git
 ```
 Se pomaknemo v klonirano mapo na računalniku:
 ```
+cd Minesweeper
 cd Python
 ```
 Ter zaženemo program:
