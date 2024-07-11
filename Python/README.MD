@@ -12,11 +12,19 @@ cd Python
 ```
 Ter zaženemo program:
 ```
-java Minesweeper.java
+Minesweeper.py
 ```
 *Pri navodilih postavljanja programa se pričakuje, da ima uporabnik naložen tako Git, kot tudi Python.*<br />
 
 # Navodila za igranje igre
+Pred tabo bo prikazana mreža velikosti 12x25, na kateri je nakljucno vnesenih 45 min.
+Tvoja naloga (ce jo le sprejmeš) je, da z zastavicami oznaciš polja za katera meniš, da so mine.
+Vsako novo polje, ki odkriješ (ki ni mina) bo odprlo polja, ki se ga dotikajo (spet, ce niso mine), na katerih bo pisalo število min, ki se jih dotikajo.
+Ce pa boš slucajno želel odkriti polje, ki skriva mino, boš sprožil le-to mino in igra se bo koncala (brez skrbi, pri prvi potezi je to nemogoce).
+Pri vsaki potezi boš vnesel 3 parametre: vrstico, stolpec in tip vnosa. Vsak vnos parametra naj bo locen s presledkom.
+Mreža je indeksirana tako, da lažje vidiš koordinate izbranega polja.
+Pri tipu vnosa boš vnesel bodisi E za 'explore', oziroma odkrivanje polj, bodisi F za 'flag', torej za postavljanje zastavice.
+Prva poteza privzame tip vnosa za E.
 *Ta navodila se nam prav tako prikažejo ob zagonu programa.*
 
   
