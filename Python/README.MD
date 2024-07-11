@@ -1,6 +1,9 @@
 # Minesweeper
 Python program igre Minesweeper (prva verzija, 11/07/2024)
 
+# Različica programa
+Python verzija programa trenutno (15:15, 11/07/2024) še ni na nivoju sestrskega javanskega programa. Tu manjka veliko več funkcionalnosti kot v "glavni" različici mojega Minesweeper programa. V načrtu je, da ta program preseže zmožnosti one različice, saj imam namen vpeljati tudi nek GUI (graphical user interface), predvidoma s tkinter knjižnico.
+
 # Navodila za inštalacijo
 Kloniramo repositorij na naš lokalni računalnik s tem, da v cmd (command prompt) vpišemo ukaz:
 ```
