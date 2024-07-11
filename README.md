@@ -3,7 +3,7 @@ Javanski program igre Minesweeper (prva verzija, 05/07/2024)
 # Navodila za namestitev
 Kloniramo repositorij na naš lokalni računalnik s tem, da v cmd (command prompt) vpišemo ukaz:
 ```
-git clone https://github.com/SwissKitten/Minesweeper.git
+git clone https://github.com/KrajncMartin/Minesweeper.git
 ```
 Se pomaknemo v klonirano mapo na računalniku:
 ```
