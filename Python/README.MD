@@ -24,7 +24,7 @@ Ce pa boš slucajno želel odkriti polje, ki skriva mino, boš sprožil le-to mi
 Pri vsaki potezi boš vnesel 3 parametre: vrstico, stolpec in tip vnosa. Vsak vnos parametra naj bo locen s presledkom.
 Mreža je indeksirana tako, da lažje vidiš koordinate izbranega polja.
 Pri tipu vnosa boš vnesel bodisi E za 'explore', oziroma odkrivanje polj, bodisi F za 'flag', torej za postavljanje zastavice.
-Prva poteza privzame tip vnosa za E.
+Prva poteza privzame tip vnosa za E.<br />
 *Ta navodila se nam prav tako prikažejo ob zagonu programa.*
 
   
