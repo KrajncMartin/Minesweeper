@@ -22,8 +22,8 @@ Minesweeper.py
 
 # Navodila za igranje igre
 Pred tabo bo prikazana mreža velikosti 12x25, na kateri je naključno vnesenih 45 min.
-Tvoja naloga (če jo le sprejmeš) je, da z zastavicami označiš polja za katera meniš, da so mine.
-Vsako novo polje, ki odkriješ (ki ni mina) bo odprlo polja, ki se ga dotikajo (spet, če niso mine), na katerih bo pisalo število min, ki se jih dotikajo.
+Tvoja naloga (če jo le sprejmeš) je, da z zastavicami označiš polja, za katera meniš, da so mine.
+Vsako novo polje, ki ga odkriješ (ki ni mina), bo odprlo polja, ki se ga dotikajo (spet, če niso mine), na katerih bo pisalo število min, ki se jih dotikajo.
 Če pa boš slučajno želel odkriti polje, ki skriva mino, boš sprožil le-to mino in igra se bo končala (brez skrbi, pri prvi potezi je to nemogoče).
 Pri vsaki potezi boš vnesel 3 parametre: vrstico, stolpec in tip vnosa. Vsak vnos parametra naj bo ločen s presledkom.
 Mreža je indeksirana tako, da lažje vidiš koordinate izbranega polja.
