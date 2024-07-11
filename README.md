@@ -29,7 +29,7 @@ Za igranje vsake poteze moramo vnesti 3 parametre:
    * E (explore) ali F (flag)
   
 # Različice programov
-V trenutni mapi lahko opazimo datoteko poimenovano ***Minesweeper_v1.0.java***. To je prvotni program, ki sem ga smatral za delujočega, četudi to ni ravno resnica. Priložen za namen opazovanja napredka med verzijami programa ter zaradi sentimentalnosti. Prava delujoča verzija ja v mapi [Najnovejša verzija](Najnovejša verzija).
+V trenutni mapi lahko opazimo datoteko poimenovano ***Minesweeper_v1.0.java***. To je prvotni program, ki sem ga smatral za delujočega, četudi to ni ravno resnica. Priložen za namen opazovanja napredka med verzijami programa ter zaradi sentimentalnosti. Prava delujoča verzija ja v mapi [Najnovejša verzija](https://github.com/KrajncMartin/Minesweeper/tree/6080c71535c4d9c7b4c96be954a15ff21d241f57/Najnovej%C5%A1a%20verzija).
 
 # Avtor
 Martin Krajnc
