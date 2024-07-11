@@ -148,7 +148,7 @@ def zacetekIgre():
     print("Copyright © 2024 Martin Krajnc, All Rights Reserved.")
     print()
     print("MINESWEEPER")
-    print("Dobrodošel v igro Minesweeper, ustvarjatelja Martina Krajnca, prvotno zasnovana 04/07/2024 v Ljubljani v javanskem programskem jeziku.")
+    print("Dobrodošel v igro Minesweeper, ustvarjatelja Martina Krajnca, prvotno zasnovana 04/07/2024 v javanskem programskem jeziku.")
     print()
     print("Pred tabo bo prikazana mreža velikosti 12x25, na kateri je nakljucno vnesenih 45 min.")
     print("Tvoja naloga (ce jo le sprejmeš) je, da z zastavicami oznaciš polja za katera meniš, da so mine.")
