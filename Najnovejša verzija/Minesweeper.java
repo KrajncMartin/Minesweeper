@@ -21,7 +21,8 @@ public class Minesweeper {
         dodajBombe(mreza);
         dopolniMrezo(mreza);
         inicializiraj(prikazanaMreza);
-
+        
+        zacetekIgre();
         
         printajPrikazanoMrezo(prikazanaMreza, mreza);
         System.out.println("Vnesi # vrstice zelenega polja:");
@@ -51,8 +52,17 @@ public class Minesweeper {
             inputType = sc.next().charAt(0);
         }
     }
+    public static void zacetekIgre(){
+        printf("Copyright © 2024 Martin Krajnc, All Rights Reserved.\nMINESWEEPER\nDobrodošel v igro Minesweeper, ustvarjatelja Martina Krajnca, prvotno zasnovana 04/07/2024 v javanskem programskem jeziku.\n");
+        printf("Pred tabo bo prikazana mreža velikosti 12x25, na kateri je nakljucno vnesenih 45 min.\nTvoja naloga je, da z zastavicami oznaciš polja za katera meniš, da so mine.\n");
+        printf("Vsako novo polje, ki odkriješ (ki ni mina) bo odprlo polja, ki se ga dotikajo (spet, ce niso mine), na katerih bo pisalo število min, ki se jih dotikajo.\n");
+        printf("Ce pa boš slucajno želel odkriti polje, ki skriva mino, boš sprožil le-to mino in igra se bo koncala (brez skrbi, pri prvi potezi je to nemogoce).\n");
+        printf("Pri vsaki potezi boš vnesel 3 parametre: vrstico, stolpec in tip vnosa.\nMreža je indeksirana tako, da lažje vidiš koordinate izbranega polja.\n");
+        printf("Pri tipu vnosa boš vnesel bodisi E za 'explore', oziroma odkrivanje polj, bodisi F za 'flag', torej za postavljanje zastavice.\nPrva poteza privzame tip vnosa za E.\n");
+    }
     public static boolean konecIgre(int stPoteze, int inputVr, int inputSt, char vnosType, int[][] mreza, char[][] prikMreza){
         boolean pogoj = false;
+        int st = 0;
         if(mreza[inputVr][inputSt] == -1 && vnosType == 'E'){
             if(stPoteze == 1){
                 preusmeriBombo(mreza, inputVr, inputSt);
@@ -63,16 +73,14 @@ public class Minesweeper {
             }
         }
         for(int i = 0; i < 25; i++){
-            pogoj = true;
             for(int j = 0; j < 12; j++){
-                if(!(mreza[i][j] == -1 && prikMreza[i][j] == 'F')){
-                    pogoj = false;
-                    break;
+                if((mreza[i][j] == -1) and (prikMreza[i][j] == 'F')){
+                    st += 1;
                 }
             }
-            if(!pogoj){
-                break;
-            }
+        }
+        if(st == 45){
+            pogoj = true;
         }
         if(pogoj){
             zmaga();
